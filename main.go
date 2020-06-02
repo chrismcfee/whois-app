@@ -2,10 +2,9 @@ package main
 
 import (
 	"encoding/json"
+	"github.com/domainr/whois"
 	"log"
 	"net/http"
-
-	"github.com/domainr/whois"
 )
 
 func main() {
@@ -45,9 +44,9 @@ func main() {
 		jsonResponse(w, Response{Result: result})
 	})
 
-	// Finally, start the HTTP server on port 8081.
+	// Finally, start the HTTP server on port 8081 cuz 8080 is for nginx or smthng
 	// If anything goes wrong, the log.Fatal call will output the error to the console and exit the application.
-	log.Fatal(http.ListenAndServe("localhost:8081", nil))
+	log.Fatal(http.ListenAndServe("127.0.0.1:8081", nil))
 }
 
 type Response struct {
