@@ -44,9 +44,9 @@ func main() {
 		jsonResponse(w, Response{Result: result})
 	})
 
-	// Finally, start the HTTP server on port 8081 cuz 8080 is for nginx or smthng
+	// Finally, start the HTTP server
 	// If anything goes wrong, the log.Fatal call will output the error to the console and exit the application.
-	log.Fatal(http.ListenAndServe("0.0.0.0:8081", nil))
+	log.Fatal(http.ListenAndServe("0.0.0.0:8080", nil))
 }
 
 type Response struct {
