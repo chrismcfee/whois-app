@@ -46,7 +46,7 @@ func main() {
 
 	// Finally, start the HTTP server on port 8081 cuz 8080 is for nginx or smthng
 	// If anything goes wrong, the log.Fatal call will output the error to the console and exit the application.
-	log.Fatal(http.ListenAndServe("127.0.0.1:8081", nil))
+	log.Fatal(http.ListenAndServe("0.0.0.0:8081", nil))
 }
 
 type Response struct {
