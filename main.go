@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"github.com/domainr/whois"
+	"io"
 	"log"
 	"net/http"
 )
@@ -73,4 +74,11 @@ func jsonResponse(w http.ResponseWriter, x interface{}) {
 	// This will send the response to the client.
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(bytes)
+}
+
+func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
+	//simple health check
+	w.WriteHeader(http.StatusOK)
+	w.Header().Set("Content-Type", "application/json")
+	io.WriteString(w, `{"alive": true}`)
 }
