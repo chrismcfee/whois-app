@@ -46,7 +46,8 @@ func main() {
 	})
 
 	// Finally, start the HTTP server
-	// If anything goes wrong, the log.Fatal call will output the error to the console and exit the application.
+	// If anything goes wrong, the log.Fatal call will output
+	// the error to the console and exit the application.
 	log.Fatal(http.ListenAndServe("0.0.0.0:8080", nil))
 }
 
@@ -82,3 +83,21 @@ func HealthCheckHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	io.WriteString(w, `{"alive": true}`)
 }
+
+/*
+In progress:
+Use Middleware for mux router instead of constantly needing to call
+http.ResponseWriter Content-Type header globally for all
+API functions that I have
+
+
+func commonMiddleWare(next http.Handler) http.Handler{
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http Request){
+		w.Header().Add("Content-Type","application/json")
+		next.ServeHTTP(w,r)
+	}
+}
+
+*/
+
+//func
