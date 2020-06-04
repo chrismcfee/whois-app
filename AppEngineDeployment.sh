@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#You must be logged in to Google Cloud on the machine you run this script from. If you are not logged in, you will be prompted to login.
 
 echo Please follow all on-screen prompts for the deployment process...
 
